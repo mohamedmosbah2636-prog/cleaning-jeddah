@@ -1,0 +1,828 @@
+:root {
+    --primary-color: #1c2b3a; /* أزرق داكن غامق */
+    --secondary-color: #ffc107; /* أصفر ذهبي لامع */
+    --background-color: #f0f4f8; /* أزرق فاتح ناعم */
+    --text-color: #1c2b3a; /* أزرق داكن غامق */
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: right;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #ffc107; /* أصفر ذهبي لامع */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffc107; /* أصفر ذهبي لامع */
+}
+
+/* تصميم زر الهامبرجر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* تصميم القائمة في وضع الهاتف */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #1c2b3a; /* أزرق داكن غامق */
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+
+/* تحسينات إضافية للشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+    header .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .hamburger {
+        padding: 5px;
+    }
+
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    nav ul {
+        top: 60px;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+}
+
+/* الصفحة الرئيسية */
+.hero {
+    background: url('images/شقق1.webp') no-repeat center center/cover;
+    color: white;
+    padding: 150px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #ffc107; /* أصفر ذهبي لامع */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #ffc107; /* أصفر ذهبي لامع */
+    color: #1c2b3a; /* أزرق داكن غامق */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0a800; /* أصفر ذهبي داكن */
+    transform: translateY(-5px);
+}
+
+/* أقسام الخدمات */
+.service-section {
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+}
+
+.service-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* تصميم الصور داخل قسم تنظيف المنازل */
+.service-item img {
+    width: 100%; /* تجعل الصورة تأخذ العرض الكامل للعنصر الأب */
+    height: auto; /* تحافظ على نسبة العرض إلى الارتفاع */
+    border-radius: 10px; /* حواف مدورة للصورة */
+    margin-bottom: 15px; /* مسافة أسفل الصورة */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثيرات عند التحويم */
+}
+
+.service-item img:hover {
+    transform: scale(1.05); /* تكبير الصورة قليلاً عند التحويم */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التحويم */
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .service-item img {
+        border-radius: 8px; /* حواف أقل استدارة للشاشات الصغيرة */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item img {
+        border-radius: 5px; /* حواف أقل استدارة للشاشات الصغيرة جدًا */
+    }
+}
+
+.service-item {
+    background-color: #085f565c; /* أبيض */
+    padding: 25px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0; /* إضافة حدود خفيفة */
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #6d0a8e; /* أزرق داكن غامق */
+}
+
+.service-item p {
+    font-size: 1em;
+    color: black; /* رمادي فاتح */
+}
+
+/* قسم اتصل بنا */
+.contact-section {
+    background-color: #1c2b3a; /* أزرق داكن غامق */
+    color: white;
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section input, .contact-section textarea {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+}
+
+.contact-section button {
+    background-color: #ffc107; /* أصفر ذهبي لامع */
+    color: #1c2b3a; /* أزرق داكن غامق */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: #e0a800; /* أصفر ذهبي داكن */
+    transform: translateY(-5px);
+}
+
+/* قسم من نحن */
+.about-section {
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+.about-section p {
+    font-size: 1.2em;
+    color: #6c757d; /* رمادي فاتح */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px; /* إضافة padding فقط للجانبين */
+}
+
+/* قسم العملاء */
+.clients-section {
+    background-color: #ffffff; /* أبيض */
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+}
+
+.clients-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+.clients-section .client-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.clients-section .client-item {
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    transition: transform 0.3s ease;
+    border: 1px solid #e0e0e0; /* إضافة حدود خفيفة */
+}
+
+.clients-section .client-item:hover {
+    transform: translateY(-10px);
+}
+
+/* قسم الأسئلة الشائعة */
+.faq-section {
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+.faq-section .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-section .faq-item {
+    background-color: #ffffff; /* أبيض */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    border: 1px solid #e0e0e0; /* إضافة حدود خفيفة */
+}
+
+.faq-section .faq-item h3 {
+    font-size: 1.4em;
+    color: #1c2b3a; /* أزرق داكن غامق */
+    margin-bottom: 10px;
+}
+
+.faq-section .faq-item p {
+    font-size: 1em;
+    color: #6c757d; /* رمادي فاتح */
+}
+
+/* قسم آراء العملاء */
+.testimonials-section {
+    background-color: #ffffff; /* أبيض */
+    padding: 0; /* إزالة الـ padding */
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5em;
+    margin: 0; /* إزالة الـ margin */
+    padding: 30px 0; /* إضافة padding فقط للأعلى والأسفل */
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+.testimonials-section .testimonials-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonials-section .testimonial-item {
+    background-color: #f0f4f8; /* أزرق فاتح ناعم */
+    padding: 25px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0; /* إضافة حدود خفيفة */
+}
+
+.testimonials-section .testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-section .testimonial-item p {
+    font-size: 1em;
+    color: #6c757d; /* رمادي فاتح */
+    margin-bottom: 15px;
+}
+
+.testimonials-section .testimonial-item h4 {
+    font-size: 1.2em;
+    color: #1c2b3a; /* أزرق داكن غامق */
+}
+
+/* تذييل الصفحة */
+footer {
+    background-color: #1c2b3a; /* أزرق داكن غامق */
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 0; /* إزالة الـ margin */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .service-item {
+        width: 45%;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .clients-section .client-item {
+        width: 45%;
+    }
+
+    .testimonials-section .testimonial-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .contact-section input, .contact-section textarea {
+        width: 90%;
+    }
+
+    .clients-section .client-item {
+        width: 100%;
+    }
+
+    .testimonials-section .testimonial-item {
+        width: 100%;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-item {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s; /* تأخير لظهور العنصر */
+}
+
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .service-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0a800; /* أصفر ذهبي داكن */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.element {
+    opacity: 0; /* يخفي العنصر في البداية */
+    animation: fadeInUp 1s ease forwards;
+}
+
+
+
+
+
+
+
+
+
+/* تصميم الشريط الجانبي */
+.social-sidebar {
+    position: fixed;
+    top: 20%;
+    left: 10px; /* موقع الشريط على الشاشة */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000; /* لضمان ظهوره فوق العناصر الأخرى */
+}
+
+/* تصميم الأيقونات */
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* الألوان لكل أيقونة */
+.social-icon.phone {
+    background-color: #007bff; /* لون الهاتف */
+}
+
+.social-icon.whatsapp {
+    background-color: #25d366; /* لون الواتساب */
+}
+
+.social-icon.instagram {
+    background-color: #e4405f; /* لون الإنستجرام */
+}
+
+.social-icon.twitter {
+    background-color: #1da1f2; /* لون تويتر */
+}
+
+.social-icon.facebook {
+    background-color: #3b5998; /* لون فيسبوك */
+}
+
+.social-icon.youtube {
+    background-color: #ff0000; /* لون يوتيوب */
+}
+
+/* التأثير عند المرور */
+.social-icon:hover {
+    transform: scale(1.1); /* تكبير الأيقونة */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* شريط جديد للواتساب والاتصال في الجنب اليسار */
+/* أيقونة الواتساب على اليسار */
+.social-left {
+    position: fixed;
+    bottom: 10px; /* المسافة من الأسفل */
+    left: 10px; /* المسافة من اليسار */
+    z-index: 1000; /* لضمان الظهور فوق العناصر الأخرى */
+}
+
+.social-left .social-icon {
+    position: relative; /* لضبط العناصر الداخلية مثل الشعار */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    background-color: #25d366; /* لون الواتساب */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* الشعار الأحمر أو الرقم على الواتساب */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* أيقونة الهاتف على اليمين */
+.social-right {
+    position: fixed;
+    bottom: 10px; /* المسافة من الأسفل */
+    right: 10px; /* المسافة من اليمين */
+    z-index: 1000; /* لضمان الظهور فوق العناصر الأخرى */
+    display: flex; /* لتوضيع الأيقونة والنص بجانب بعض */
+    align-items: center;
+    gap: 8px; /* مسافة بين الأيقونة والنص */
+}
+
+/* تصميم الأيقونة */
+.social-right .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    background-color: #007bff; /* لون الهاتف */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* النص بجانب الأيقونة */
+.call-label {
+    font-size: 16px; /* حجم النص */
+    font-weight: bold; /* خط عريض */
+    color: #0b0b0b; /* لون النص */
+    background-color: #fff; /* الخلفية البيضاء */
+    padding: 5px 10px; /* الحشو حول النص */
+    border-radius: 12px; /* زاوية حادة للنص */
+    border: 1px solid #ccc; /* خط خفيف حول النص */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* تأثير الظل */
+    font-family: 'Arial', sans-serif; /* الخط */
+    margin-left: 10px; /* المسافة بين النص والأيقونة */
+}
+
+/* التأثير عند تمرير الفأرة على الأيقونة */
+.social-icon:hover {
+    transform: scale(1.1); /* تكبير الأيقونة */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* يمكنك تغيير الارتفاع حسب احتياجك */
+    border-radius: 10px; /* إضافة حواف دائرية */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* تأثير الظل */
+}
+
+
+
+
+
+
+/* تصميم البطاقة */
+.card {
+    background-color: #ffffff; /* خلفية بيضاء */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    margin: 20px auto;
+    position: relative;
+}
+
+/* زر الاتصال داخل البطاقة */
+.contact-button {
+    background-color: #ffc107; /* أصفر ذهبي لامع */
+    color: #1c2b3a; /* أزرق داكن غامق */
+    padding: 15px 30px; /* زيادة حجم padding */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em; /* زيادة حجم الخط */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px; /* مسافة من الأعلى */
+}
+
+.contact-button:hover {
+    background-color: #e0a800; /* أصفر ذهبي داكن */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* انيميشن لزر الاتصال */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); /* زيادة حجم الظل */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
